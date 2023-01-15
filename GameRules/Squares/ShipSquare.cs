@@ -3,13 +3,11 @@ namespace GameRules.Squares;
 public class ShipSquare : Square
 {
     private Coordinate _coordinate;
-    private int _shipId;
+    private Guid _shipId;
 
-    public ShipSquare(Coordinate coordinate, int shipId)
+    public ShipSquare(Coordinate coordinate, Guid shipId)
     {
         _coordinate = coordinate;
         _shipId = shipId;
     }
-    
-    
 }
