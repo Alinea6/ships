@@ -41,7 +41,38 @@ public class ShipBuilder
     {
         if (AreCoordinatesValid())
         {
-            
+            var coordinates = ConvertToListOfCoordinates();
+            switch (_type)
+            {
+                case ShipType.OneSquare:
+                    var oneSquare = new OneSquareShip(Guid.NewGuid(), coordinates);
+                    return new ShipBuilt
+                    {
+                        Squares = coordinates,
+                        Ship = oneSquare
+                    };
+                case ShipType.TwoSquare:
+                    var twoSquare = new TwoSquareShip(Guid.NewGuid(), coordinates);
+                    return new ShipBuilt
+                    {
+                        Squares = coordinates,
+                        Ship = twoSquare
+                    };
+                case ShipType.ThreeSquare:
+                    var threeSquare = new ThreeSquareShip(Guid.NewGuid(), coordinates);
+                    return new ShipBuilt
+                    {
+                        Squares = coordinates,
+                        Ship = threeSquare
+                    };
+                case ShipType.FourSquare:
+                    var fourSquare = new FourSquareShip(Guid.NewGuid(), coordinates);
+                    return new ShipBuilt
+                    {
+                        Squares = coordinates,
+                        Ship = fourSquare
+                    };
+            }
         }
         throw new Exception("Invalid coordinates");
     }
@@ -50,67 +81,152 @@ public class ShipBuilder
     {
         if (_type == ShipType.OneSquare)
         {
-            if (_finishPosition == null)
-            {
-                return true;
-            }
-
-            return false;
+            return AreCoordinatesValidForOneSquare();
         }
 
-        var startCoordinates = _startPosition.GetCoordinates();
-        var finishCoordinates = _finishPosition.GetCoordinates();
         if (_type == ShipType.TwoSquare)
         {
-            if (startCoordinates.Item1 == finishCoordinates.Item1 - 1 &&
-                 startCoordinates.Item2 == finishCoordinates.Item2)
-            {
-                return true;
-            }
-
-            if (startCoordinates.Item2 == finishCoordinates.Item2 - 1 &&
-                startCoordinates.Item1 == finishCoordinates.Item1)
-            {
-                return true;
-            }
-            
-            return false;
+            return AreCoordinatesValidForTwoSquare();
         }
 
         if (_type == ShipType.ThreeSquare)
         {
-            if (startCoordinates.Item1 == finishCoordinates.Item1 - 2 &&
-                startCoordinates.Item2 == finishCoordinates.Item2)
-            {
-                return true;
-            }
-
-            if (startCoordinates.Item2 == finishCoordinates.Item2 - 2 &&
-                startCoordinates.Item1 == finishCoordinates.Item1)
-            {
-                return true;
-            }
-            
-            return false;
+            return AreCoordinatesValidForThreeSquare();
         }
 
         if (_type == ShipType.FourSquare)
         {
-            if (startCoordinates.Item1 == finishCoordinates.Item1 - 3 &&
-                startCoordinates.Item2 == finishCoordinates.Item2)
-            {
-                return true;
-            }
-
-            if (startCoordinates.Item2 == finishCoordinates.Item2 - 3 &&
-                startCoordinates.Item1 == finishCoordinates.Item1)
-            {
-                return true;
-            }
-            
-            return false;
+            AreCoordinatesValidForFourSquare();
         }
         
         return false;
+    }
+
+    private bool AreCoordinatesValidForOneSquare()
+    {
+        if (_finishPosition == null)
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    private bool AreCoordinatesValidForTwoSquare()
+    {
+        var startCoordinates = _startPosition.GetCoordinates();
+        var finishCoordinates = _finishPosition.GetCoordinates();
+        
+        if (startCoordinates.Item1 == finishCoordinates.Item1 - 1 &&
+            startCoordinates.Item2 == finishCoordinates.Item2)
+        {
+            return true;
+        }
+
+        if (startCoordinates.Item2 == finishCoordinates.Item2 - 1 &&
+            startCoordinates.Item1 == finishCoordinates.Item1)
+        {
+            return true;
+        }
+            
+        return false;
+    }
+
+    private bool AreCoordinatesValidForThreeSquare()
+    {
+        var startCoordinates = _startPosition.GetCoordinates();
+        var finishCoordinates = _finishPosition.GetCoordinates();
+        
+        if (startCoordinates.Item1 == finishCoordinates.Item1 - 2 &&
+            startCoordinates.Item2 == finishCoordinates.Item2)
+        {
+            return true;
+        }
+
+        if (startCoordinates.Item2 == finishCoordinates.Item2 - 2 &&
+            startCoordinates.Item1 == finishCoordinates.Item1)
+        {
+            return true;
+        }
+            
+        return false;
+    }
+
+    private bool AreCoordinatesValidForFourSquare()
+    {
+        var startCoordinates = _startPosition.GetCoordinates();
+        var finishCoordinates = _finishPosition.GetCoordinates();
+        
+        if (startCoordinates.Item1 == finishCoordinates.Item1 - 3 &&
+            startCoordinates.Item2 == finishCoordinates.Item2)
+        {
+            return true;
+        }
+
+        if (startCoordinates.Item2 == finishCoordinates.Item2 - 3 &&
+            startCoordinates.Item1 == finishCoordinates.Item1)
+        {
+            return true;
+        }
+            
+        return false;
+    }
+
+    private List<Coordinate> ConvertToListOfCoordinates()
+    {
+        if (_type == ShipType.OneSquare)
+        {
+            return new List<Coordinate> { _startPosition };
+        }
+
+        if (_type == ShipType.TwoSquare)
+        {
+            return new List<Coordinate> { _startPosition, _finishPosition };
+        }
+
+        if (_type == ShipType.ThreeSquare)
+        {
+            var startCoordinates = _startPosition.GetCoordinates();
+            var finishCoordinates = _finishPosition.GetCoordinates();
+            if (startCoordinates.Item1 == finishCoordinates.Item1 - 2 &&
+                startCoordinates.Item2 == finishCoordinates.Item2)
+            {
+                return new List<Coordinate>
+                {
+                    _startPosition,
+                    new (Convert.ToChar(startCoordinates.Item1 + 1), startCoordinates.Item2),
+                    _finishPosition
+                };
+            }
+            return new List<Coordinate>
+            {
+                _startPosition,
+                new (startCoordinates.Item1, Convert.ToChar(startCoordinates.Item2 + 1)),
+                _finishPosition
+            };
+        }
+        else
+        {
+            var startCoordinates = _startPosition.GetCoordinates();
+            var finishCoordinates = _finishPosition.GetCoordinates();
+            if (startCoordinates.Item1 == finishCoordinates.Item1 - 3 &&
+                startCoordinates.Item2 == finishCoordinates.Item2)
+            {
+                return new List<Coordinate>
+                {
+                    _startPosition,
+                    new (Convert.ToChar(startCoordinates.Item1 + 1), startCoordinates.Item2),
+                    new (Convert.ToChar(startCoordinates.Item1 + 2), startCoordinates.Item2),
+                    _finishPosition
+                };
+            }
+            return new List<Coordinate>
+            {
+                _startPosition,
+                new (startCoordinates.Item1, Convert.ToChar(startCoordinates.Item2 + 1)),
+                new (startCoordinates.Item1, Convert.ToChar(startCoordinates.Item2 + 2)),
+                _finishPosition
+            };
+        }
     }
 }

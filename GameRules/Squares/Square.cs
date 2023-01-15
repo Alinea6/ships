@@ -13,4 +13,14 @@ public class Square
     {
         _coordinate = coordinate;
     }
+
+    public bool CheckIfCanPlaceShip()
+    {
+        return false;
+    }
+
+    public Coordinate GetCoordinate()
+    {
+        return _coordinate;
+    }
 }

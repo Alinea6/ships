@@ -8,4 +8,9 @@ public class EmptySquare : Square
     {
         _coordinate = coordinate;
     }
+    
+    public bool CheckIfCanPlaceShip()
+    {
+        return true;
+    }
 }

@@ -39,6 +39,10 @@ public class Battle
                     coordinate.FinishPosition, 
                     _shipsToPlace.First());
                 var ship = builder.Build();
+                if (_boards[_currentPlayer].PlaceShip(ship.Ship))
+                {
+                    _shipsToPlace.RemoveAt(0);
+                }
             }
             catch (Exception e)
             {

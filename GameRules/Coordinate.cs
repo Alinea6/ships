@@ -27,8 +27,8 @@ public class Coordinate
         return false;
     }
 
-    public Tuple<char?, char?> GetCoordinates()
+    public Tuple<char, char> GetCoordinates()
     {
-        return new Tuple<char?, char?>(_x, _y);
+        return new Tuple<char, char>(_x, _y);
     }
 }
