@@ -1,0 +1,126 @@
+{
+  "version": 3,
+  "targets": {
+    "net6.0": {
+      "ConsoleInterface/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/ConsoleInterface.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ConsoleInterface.dll": {}
+        }
+      },
+      "GameRules/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/GameRules.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/GameRules.dll": {}
+        }
+      },
+      "Player/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Player.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Player.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "ConsoleInterface/1.0.0": {
+      "type": "project",
+      "path": "../ConsoleInterface/ConsoleInterface.csproj",
+      "msbuildProject": "../ConsoleInterface/ConsoleInterface.csproj"
+    },
+    "GameRules/1.0.0": {
+      "type": "project",
+      "path": "../GameRules/GameRules.csproj",
+      "msbuildProject": "../GameRules/GameRules.csproj"
+    },
+    "Player/1.0.0": {
+      "type": "project",
+      "path": "../Player/Player.csproj",
+      "msbuildProject": "../Player/Player.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net6.0": [
+      "ConsoleInterface >= 1.0.0",
+      "GameRules >= 1.0.0",
+      "Player >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "/Users/nataliagrycz/.nuget/packages/": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "/Users/nataliagrycz/Desktop/Workspace/Projekty/ships/Game/Game.csproj",
+      "projectName": "Game",
+      "projectPath": "/Users/nataliagrycz/Desktop/Workspace/Projekty/ships/Game/Game.csproj",
+      "packagesPath": "/Users/nataliagrycz/.nuget/packages/",
+      "outputPath": "/Users/nataliagrycz/Desktop/Workspace/Projekty/ships/Game/obj/",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "/Users/nataliagrycz/.nuget/NuGet/NuGet.Config"
+      ],
+      "originalTargetFrameworks": [
+        "net6.0"
+      ],
+      "sources": {
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "projectReferences": {
+            "/Users/nataliagrycz/Desktop/Workspace/Projekty/ships/ConsoleInterface/ConsoleInterface.csproj": {
+              "projectPath": "/Users/nataliagrycz/Desktop/Workspace/Projekty/ships/ConsoleInterface/ConsoleInterface.csproj"
+            },
+            "/Users/nataliagrycz/Desktop/Workspace/Projekty/ships/GameRules/GameRules.csproj": {
+              "projectPath": "/Users/nataliagrycz/Desktop/Workspace/Projekty/ships/GameRules/GameRules.csproj"
+            },
+            "/Users/nataliagrycz/Desktop/Workspace/Projekty/ships/Player/Player.csproj": {
+              "projectPath": "/Users/nataliagrycz/Desktop/Workspace/Projekty/ships/Player/Player.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net6.0": {
+        "targetAlias": "net6.0",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.302/RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/nataliagrycz/Desktop/Workspace/Projekty/ships/Player/Player.csproj": {}
+  },
+  "projects": {
+    "/Users/nataliagrycz/Desktop/Workspace/Projekty/ships/Player/Player.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/nataliagrycz/Desktop/Workspace/Projekty/ships/Player/Player.csproj",
+        "projectName": "Player",
+        "projectPath": "/Users/nataliagrycz/Desktop/Workspace/Projekty/ships/Player/Player.csproj",
+        "packagesPath": "/Users/nataliagrycz/.nuget/packages/",
+        "outputPath": "/Users/nataliagrycz/Desktop/Workspace/Projekty/ships/Player/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/nataliagrycz/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.302/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
