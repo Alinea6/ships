@@ -16,8 +16,8 @@ public class Battle
     {
         _interfaceOutputService = interfaceOutputService;
         _playerService = playerService;
-        var player0 = new Board();
-        var player1 = new Board();
+        var player0 = new Board(interfaceOutputService);
+        var player1 = new Board(interfaceOutputService);
         _boards = new List<Board> { player0, player1 };
         _currentPlayer = 0;
         _shipsToPlace = new List<ShipType>();
@@ -29,7 +29,7 @@ public class Battle
         FillShipList();
         while (_shipsToPlace.Any())
         {
-            _boards[_currentPlayer].PrintBoard();
+            _boards[_currentPlayer].OutputBoard();
             var coordinate = _playerService.GetShipCoordinate(_currentPlayer, _shipsToPlace.First().ToString());
 
             try

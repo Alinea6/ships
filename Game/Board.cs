@@ -1,3 +1,4 @@
+using ConsoleInterface;
 using GameRules;
 using GameRules.Ships;
 using GameRules.Squares;
@@ -9,9 +10,11 @@ public class Board
     private List<Square> _squares;
     private List<Ship> _ships;
     private int _shipCounter;
+    private readonly IInterfaceOutputService _interfaceOutputService;
 
-    public Board()
+    public Board(IInterfaceOutputService interfaceOutputService)
     {
+        _interfaceOutputService = interfaceOutputService;
         _squares = new List<Square>();
         _ships = new List<Ship>();
         _shipCounter = 0;
@@ -55,9 +58,9 @@ public class Board
         return false;
     }
 
-    public void PrintBoard()
+    public void OutputBoard()
     {
-        throw new NotImplementedException();
+        _interfaceOutputService.PrintBoard(_squares.Select(x => MapToOutputSquare(x)).ToList());
     }
 
     private bool CheckIfShipIsPlaceable(Ship ship)
@@ -80,5 +83,17 @@ public class Board
         }
 
         return false;
+    }
+
+    private ConsoleInterface.Models.Square MapToOutputSquare(Square square)
+    {
+        return new ConsoleInterface.Models.Square
+        {
+            X = square.GetCoordinate().GetCoordinates().Item1,
+            Y = square.GetCoordinate().GetCoordinates().Item2,
+            Type = (ConsoleInterface.Models.SquareType)Enum.Parse(
+                typeof(ConsoleInterface.Models.SquareType),
+                square.GetType().ToString())
+        };
     }
 }
