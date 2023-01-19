@@ -4,7 +4,7 @@ public class Ship
 {
     private Guid _shipId;
     private List<Coordinate> _coordinates;
-    private int _lifePointsLeft;
+    protected int _lifePointsLeft;
 
     protected Ship()
     {
@@ -22,9 +22,7 @@ public class Ship
 
     public List<Coordinate> GetCoordinates()
     {
-        var list = new List<Coordinate>();
-        list.AddRange(_coordinates);
-        return list;
+        return _coordinates;
     }
 
     public Guid GetId()

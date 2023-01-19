@@ -11,7 +11,7 @@ public class PlayerService : IPlayerService
         var finishPosition = "";
         if (ship != "OneSquare")
         {
-            Console.WriteLine("Please insert finish position (letter then number");
+            Console.WriteLine("Please insert finish position (letter then number)");
             finishPosition = Console.ReadLine();
         }
 

@@ -24,8 +24,9 @@ public class Battle
         _interfaceOutputService.PrintWelcomeMessage();
     }
 
-    public void PlaceShips()
+    public void PlaceShips(int player)
     {
+        _currentPlayer = player;
         FillShipList();
         while (_shipsToPlace.Any())
         {
@@ -42,6 +43,10 @@ public class Battle
                 if (_boards[_currentPlayer].PlaceShip(ship.Ship))
                 {
                     _shipsToPlace.RemoveAt(0);
+                }
+                else
+                {
+                    _playerService.PrintCoordinateInvalidMessage();
                 }
             }
             catch (Exception e)

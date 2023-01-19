@@ -4,9 +4,9 @@ using Player;
 
 IInterfaceOutputService consoleService = new ConsoleOutputService();
 IPlayerService playerService = new PlayerService();
-
 var game = new Battle(consoleService, playerService);
-game.PlaceShips();
+game.PlaceShips(0);
+game.PlaceShips(1);
 //game.Run();
 //game.Finish();
     

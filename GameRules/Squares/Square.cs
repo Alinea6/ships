@@ -3,12 +3,10 @@ namespace GameRules.Squares;
 public class Square
 {
     private Coordinate _coordinate;
-    private SquareType _type;
+    protected SquareType _type;
 
     public Square()
     {
-        _coordinate = new Coordinate('A', '0');
-        _type = SquareType.Empty;
     }
     
     public Square(Coordinate coordinate)
@@ -16,7 +14,7 @@ public class Square
         _coordinate = coordinate;
     }
 
-    public bool CheckIfCanPlaceShip()
+    public virtual bool CheckIfCanPlaceShip()
     {
         return false;
     }

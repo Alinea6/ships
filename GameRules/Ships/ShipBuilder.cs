@@ -96,7 +96,7 @@ public class ShipBuilder
 
         if (_type == ShipType.FourSquare)
         {
-            AreCoordinatesValidForFourSquare();
+            return AreCoordinatesValidForFourSquare();
         }
         
         return false;

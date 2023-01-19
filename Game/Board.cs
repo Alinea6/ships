@@ -28,9 +28,8 @@ public class Board
         {
             for (int i = 0; i < 10; i++)
             {
-                var coordinate = new Coordinate(letter, (char)i);
-                var square = new EmptySquare(coordinate);
-                _squares.Add(square);
+                var coordinate = new Coordinate(letter, i.ToString()[0]);
+                _squares.Add(new EmptySquare(coordinate));
             }
         }
     }
