@@ -17,9 +17,10 @@ public class Coordinate
 
     private bool Validate()
     {
+        int y = _y - '0';
         if (_x >= 'A' && _x <= 'J')
         {
-            if (_y >= '0' && _y <= '9')
+            if (y >= 0 && y <= 9)
             {
                 return true;
             }

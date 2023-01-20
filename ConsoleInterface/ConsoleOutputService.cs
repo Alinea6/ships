@@ -54,7 +54,7 @@ public class ConsoleOutputService : IInterfaceOutputService
             result += i.ToString() + "  ";
             foreach (var character in _fields)
             {
-                var square = board.First(x => x.X == character && x.Y == i);
+                var square = board.First(x => x.X == character && x.Y == i.ToString()[0]);
                 if (square.Type == SquareType.Empty)
                 {
                     result += "O ";
