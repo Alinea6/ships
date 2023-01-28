@@ -34,4 +34,15 @@ public class Ship
     {
         return _lifePointsLeft;
     }
+
+    public int Shoot()
+    {
+        _lifePointsLeft -= 1;
+        if (_lifePointsLeft <= 0)
+        {
+            return 0;
+        }
+
+        return _lifePointsLeft;
+    }
 }

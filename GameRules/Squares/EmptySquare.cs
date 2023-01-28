@@ -12,4 +12,9 @@ public class EmptySquare : Square
     {
         return true;
     }
+
+    public override bool CheckIfCanShoot()
+    {
+        return true;
+    }
 }

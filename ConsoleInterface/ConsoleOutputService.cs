@@ -19,16 +19,21 @@ public class ConsoleOutputService : IInterfaceOutputService
         Console.WriteLine("Welcome!");
     }
 
-    public void PrintBoard(List<Square> board)
+    public void PrintPlayerBoard(List<Square> board)
     {
         Console.WriteLine(PrepareExplanationMessage());
         Console.WriteLine(PrepareFirstLine());
         Console.WriteLine(PrepareBoard(board));
     }
 
+    public void PrintFinishGameMessage(int player)
+    {
+        Console.WriteLine($"Congratulations! Player {player} won the game!");
+    }
+
     private string PrepareExplanationMessage()
     {
-        var result = "";
+        var result = "This is your board" + "\n";
         foreach (var key in _explanations.Keys)
         {
             result += key + ": " + _explanations[key] + "\n";

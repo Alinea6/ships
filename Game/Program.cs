@@ -7,6 +7,6 @@ IPlayerService playerService = new PlayerService();
 var game = new Battle(consoleService, playerService);
 game.PlaceShips(0);
 game.PlaceShips(1);
-//game.Run();
-//game.Finish();
+var player = game.Run();
+game.Finish(player);
     

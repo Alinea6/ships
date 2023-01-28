@@ -9,4 +9,14 @@ public class ShipSquare : Square
         _shipId = shipId;
         _type = SquareType.Ship;
     }
+    
+    public override bool CheckIfCanShoot()
+    {
+        return true;
+    }
+    
+    public override Guid? GetShipId()
+    {
+        return _shipId;
+    }
 }

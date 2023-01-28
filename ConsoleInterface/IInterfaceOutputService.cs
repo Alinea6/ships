@@ -6,5 +6,6 @@ namespace ConsoleInterface;
 public interface IInterfaceOutputService
 {
     void PrintWelcomeMessage();
-    void PrintBoard(List<Square> board);
+    void PrintPlayerBoard(List<Square> board);
+    void PrintFinishGameMessage(int player);
 }
