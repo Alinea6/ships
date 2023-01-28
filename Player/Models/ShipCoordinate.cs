@@ -1,4 +1,4 @@
-namespace Player;
+namespace Player.Models;
 
 public class ShipCoordinate
 {

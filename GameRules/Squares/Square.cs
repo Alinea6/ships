@@ -19,6 +19,16 @@ public class Square
         return false;
     }
 
+    public virtual bool CheckIfCanShoot()
+    {
+        return false;
+    }
+
+    public virtual Guid? GetShipId()
+    {
+        return null;
+    }
+
     public Coordinate GetCoordinate()
     {
         return _coordinate;
